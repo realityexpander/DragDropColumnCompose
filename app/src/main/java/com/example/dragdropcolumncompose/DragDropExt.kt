@@ -1,6 +1,7 @@
 package com.example.dragdropcolumncompose
 
 import androidx.compose.animation.core.FastOutLinearInEasing
+import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -26,7 +27,6 @@ fun rememberDragDropState(
     val state = remember(lazyListState) {
         DragDropState(
             state = lazyListState,
-            //onMove = onSwap,  // typo?
             onSwap = onSwap,
             scope = scope
         )
@@ -55,6 +55,7 @@ fun LazyItemScope.DraggableItem(
     val current: Float by animateFloatAsState(dragDropState.draggingItemOffset * 0.67f)
     val previous: Float by animateFloatAsState(dragDropState.previousItemOffset.value * 0.67f)
     val dragging = index == dragDropState.currentIndexOfDraggedItem
+
     val draggingModifier = if (dragging) {
         Modifier
             .zIndex(1f)

@@ -7,16 +7,16 @@ import kotlin.random.Random
 
 class MainViewModel: ViewModel() {
 
-    private val _uiState = MutableStateFlow<List<Stuff>>(listOf())
+    private val _uiState = MutableStateFlow<List<Section>>(listOf())
     val uiState = _uiState.asStateFlow()
 
-    private val stuff = listOf(
-        Stuff(name ="Stuff 1"),
-        Stuff(name ="Stuff 2"),
-        Stuff(name ="Stuff 3"),
-        Stuff(name ="Stuff 4"),
-        Stuff(name ="Stuff 5"),
-        Stuff(name ="Stuff 6"),
+    private val sections = listOf(
+        Section(name ="Section 1"),
+        Section(name ="Section 2"),
+        Section(name ="Section 3"),
+        Section(name ="Section 4"),
+        Section(name ="Section 5"),
+        Section(name ="Section 6"),
     )
 
     fun swapSections(from: Int, to: Int) {
@@ -29,17 +29,23 @@ class MainViewModel: ViewModel() {
         _uiState.value = newList
     }
 
+    fun sectionClicked(item: Section) {
+        println("Clicked $item")
+    }
+
     init {
-        _uiState.value = stuff.shuffled()
+        _uiState.value = sections.shuffled()
     }
 
 }
 
-data class Stuff(
-    val id: Int = 0,
+data class Section(
+    val id: Int = internalId++,
     val name: String = "",
     val description: String = "",
-    var share: Int = 0,
-    var trend: Int = 0,
     val color: Long = Random(id).nextLong()
-)
+) {
+    companion object {
+        private var internalId = 0
+    }
+}
