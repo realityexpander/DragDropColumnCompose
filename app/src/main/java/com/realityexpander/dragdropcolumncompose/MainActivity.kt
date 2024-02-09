@@ -88,7 +88,7 @@ data class Item(
     val color: Long = Random(id).nextLong()
 ) {
     companion object {
-        private var internalId = 0  // <-- OK to use for example, but not in production!
+        private var internalId = 0  // <-- OK to use in examples, never in production!
     }
 }
 
@@ -144,7 +144,8 @@ fun DragNDropItemsList(
 @Composable
 fun DefaultPreview() {
     DragDropColumnComposeTheme {
-        val mutableUiState = MutableStateFlow<List<Item>>(listOf())
+        val mutableUiState =
+            MutableStateFlow<List<Item>>(listOf())
         DragNDropItemsList(
             items = mutableUiState.collectAsState().value
         )
