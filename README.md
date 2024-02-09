@@ -4,6 +4,10 @@ This same code will also work in KMP (Kotlin Multi-Platform) for iOS and Android
 
 [<img src="Screenshot_20240209_134747.png" width="200"/>](Screenshot_20240209_134747.png)
 
+Video Explainer:
+[<img src="https://github.com/realityexpander/DragDropColumnCompose/assets/5157474/40612935-110b-4f78-a59c-3a2734f6b07d" width="200">[https://youtu.be/vdbqlkKENi4]
+
+
 https://github.com/realityexpander/DragDropColumnCompose/assets/5157474/bbd0a44d-414d-44b2-a55e-eb3260149d40
 
 - Join the KMP Developers Group:
