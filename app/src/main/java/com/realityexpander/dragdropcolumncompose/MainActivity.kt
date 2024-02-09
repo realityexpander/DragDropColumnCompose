@@ -31,14 +31,45 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             DragDropColumnComposeTheme {
-                val mutableUiState =
-                    MutableStateFlow<List<Item>>(listOf())
+                val itemsStateFlow =
+                    MutableStateFlow(
+                        listOf(
+                        Item(name ="Item 1 - Apple"),
+                        Item(name ="Item 2 - Banana"),
+                        Item(name ="Item 3 - Carrot"),
+                        Item(name ="Item 4 - Date"),
+                        Item(name ="Item 5 - Eggplant"),
+                        Item(name ="Item 6 - Fig"),
+                        Item(name ="Item 7 - Grape"),
+                        Item(name ="Item 8 - Honeydew"),
+                        Item(name ="Item 9 - Iceberg Lettuce"),
+                    ).shuffled()
+                )
+
+                fun onItemClicked(clickedItem: Item) {
+                    itemsStateFlow.update { currentList ->
+                        val newList = currentList.toMutableList()
+                            .map { item ->
+                                if(clickedItem == item) {
+                                    item.copy(name = "Clicked ${item.name}")
+                                } else {
+                                    item
+                                }
+                            }
+                            .toList()
+
+                        newList
+                    }
+                }
 
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    StuffListUI(mutableUiState)
+                    DragNDropItemsList(
+                        itemsStateFlow.collectAsState().value,
+                        onItemClicked = ::onItemClicked
+                    )
                 }
             }
         }
@@ -57,20 +88,13 @@ data class Item(
 }
 
 @Composable
-fun StuffListUI(mutableUiState: MutableStateFlow<List<Item>>) {
+fun DragNDropItemsList(
+    items: List<Item>,
+    onItemClicked : (Item) -> Unit = {}
+) {
+    val mutableUiState =
+        MutableStateFlow<List<Item>>(items)
     val uiState = mutableUiState.asStateFlow().collectAsState()
-
-    val items = listOf(
-        Item(name ="Item 1 - Apple"),
-        Item(name ="Item 2 - Banana"),
-        Item(name ="Item 3 - Carrot"),
-        Item(name ="Item 4 - Date"),
-        Item(name ="Item 5 - Eggplant"),
-        Item(name ="Item 6 - Fig"),
-        Item(name ="Item 7 - Grape"),
-        Item(name ="Item 8 - Honeydew"),
-        Item(name ="Item 9 - Iceberg Lettuce"),
-    )
 
     fun swapItems(from: Int, to: Int) {
         val fromItem = mutableUiState.value[from]
@@ -80,22 +104,6 @@ fun StuffListUI(mutableUiState: MutableStateFlow<List<Item>>) {
         newList[to] = fromItem
 
         mutableUiState.update { newList }
-    }
-
-    fun onItemClicked(clickedItem: Item) {
-        mutableUiState.update { currentList ->
-            val newList = currentList.toMutableList()
-                .map { item ->
-                    if(clickedItem == item) {
-                        item.copy(name = "Clicked ${item.name}")
-                    } else {
-                        item
-                    }
-                }
-                .toList()
-
-            newList
-        }
     }
 
     LaunchedEffect(key1 = Unit) {
@@ -132,6 +140,8 @@ fun StuffListUI(mutableUiState: MutableStateFlow<List<Item>>) {
 fun DefaultPreview() {
     DragDropColumnComposeTheme {
         val mutableUiState = MutableStateFlow<List<Item>>(listOf())
-        StuffListUI(mutableUiState)
+        DragNDropItemsList(
+            items = mutableUiState.collectAsState().value
+        )
     }
 }
