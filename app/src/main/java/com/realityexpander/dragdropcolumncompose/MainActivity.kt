@@ -31,6 +31,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             DragDropColumnComposeTheme {
+
+                // Create the list of items
                 val itemsStateFlow =
                     MutableStateFlow(
                         listOf(
@@ -46,11 +48,13 @@ class MainActivity : ComponentActivity() {
                     ).shuffled()
                 )
 
+                // Define what happens when an item is clicked
                 fun onItemClicked(clickedItem: Item) {
                     itemsStateFlow.update { currentList ->
                         val newList = currentList.toMutableList()
                             .map { item ->
                                 if(clickedItem == item) {
+                                    // Could perform some other action here...
                                     item.copy(name = "Clicked ${item.name}")
                                 } else {
                                     item
@@ -83,7 +87,7 @@ data class Item(
     val color: Long = Random(id).nextLong()
 ) {
     companion object {
-        private var internalId = 0
+        private var internalId = 0  // <-- OK to use for example, but not in production!
     }
 }
 
