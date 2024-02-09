@@ -3,7 +3,9 @@ Demo android app showing one way to implement drag-n-drop for a LazyColumn.
 This same code will also work in KMP (Kotlin Multi-Platform) for iOS and Android.
 
 [<img src="Screenshot_20240209_134747.png" width="200"/>](Screenshot_20240209_134747.png)
-[Screen_recording_20240209_135202.mp4](Screen_recording_20240209_135202.mp4)
+
+https://github.com/realityexpander/DragDropColumnCompose/assets/5157474/bbd0a44d-414d-44b2-a55e-eb3260149d40
+
 
 
 Reference for code from Stack Overflow from Jurij Pitulja:
