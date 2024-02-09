@@ -1,4 +1,4 @@
-package com.example.dragdropcolumncompose
+package com.realityexpander.dragdropcolumncompose
 
 import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.LinearOutSlowInEasing

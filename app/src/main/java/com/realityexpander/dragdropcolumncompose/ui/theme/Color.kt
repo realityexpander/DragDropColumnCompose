@@ -1,4 +1,4 @@
-package com.example.dragdropcolumncompose.ui.theme
+package com.realityexpander.dragdropcolumncompose.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,4 +1,4 @@
-package com.example.dragdropcolumncompose
+package com.realityexpander.dragdropcolumncompose
 
 import org.junit.Test
 
