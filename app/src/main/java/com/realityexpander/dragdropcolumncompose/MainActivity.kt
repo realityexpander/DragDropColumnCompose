@@ -36,17 +36,18 @@ class MainActivity : ComponentActivity() {
                 val itemsStateFlow =
                     MutableStateFlow(
                         listOf(
-                        Item(name ="Item 1 - Apple"),
-                        Item(name ="Item 2 - Banana"),
-                        Item(name ="Item 3 - Carrot"),
-                        Item(name ="Item 4 - Date"),
-                        Item(name ="Item 5 - Eggplant"),
-                        Item(name ="Item 6 - Fig"),
-                        Item(name ="Item 7 - Grape"),
-                        Item(name ="Item 8 - Honeydew"),
-                        Item(name ="Item 9 - Iceberg Lettuce"),
-                    ).shuffled()
-                )
+                            Item(name ="Item 1 - Apple"),
+                            Item(name ="Item 2 - Banana"),
+                            Item(name ="Item 3 - Carrot"),
+                            Item(name ="Item 4 - Date"),
+                            Item(name ="Item 5 - Eggplant"),
+                            Item(name ="Item 6 - Fig"),
+                            Item(name ="Item 7 - Grape"),
+                            Item(name ="Item 8 - Honeydew"),
+                            Item(name ="Item 9 - Iceberg Lettuce"),
+                        )
+                        .shuffled()
+                    )
 
                 // Define what happens when an item is clicked
                 fun onItemClicked(clickedItem: Item) {
