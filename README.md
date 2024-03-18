@@ -4,7 +4,7 @@ This same code will also work in KMP (Kotlin Multi-Platform) for iOS and Android
 
 Video Explainer: https://youtu.be/vdbqlkKENi4
 
-[<img src="https://github.com/realityexpander/DragDropColumnCompose/assets/5157474/40612935-110b-4f78-a59c-3a2734f6b07d" width="250">](https://youtu.be/vdbqlkKENi4)
+[<img src="https://github.com/realityexpander/DragDropColumnCompose/assets/5157474/40612935-110b-4f78-a59c-3a2734f6b07d" width="450">](https://youtu.be/vdbqlkKENi4)
 
 [<img src="Screenshot_20240209_134747.png" width="200"/>](Screenshot_20240209_134747.png)
 
