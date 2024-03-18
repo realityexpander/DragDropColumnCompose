@@ -18,6 +18,6 @@ https://github.com/realityexpander/DragDropColumnCompose/assets/5157474/bbd0a44d
 Reference for code from Stack Overflow from Jurij Pitulja:
 https://stackoverflow.com/questions/64913067/reorder-lazycolumn-items-with-drag-drop
 
-## Updated to use Compose Only in February 2024
+## Updated to be pure Compose in February 2024
 Updated to work with Kotlin Multi-Platform (KMP) and Compose by removing the Android specific code 
 and replacing it with Compose specific code.
